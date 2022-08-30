@@ -1,0 +1,7 @@
+.task {
+  padding: 10px;
+  margin: 10px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid grey;
+}

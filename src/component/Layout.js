@@ -1,12 +1,12 @@
-import { AddTask } from './AddTask';
-import { TaskLists } from './TaskLists';
+import TaskForm from './TaskForm';
 
-export function Layout() {
+function Layout() {
   return (
     <div>
       <h1>Your Tasks</h1>
-      <AddTask />
-      <TaskLists />
+      <TaskForm />
     </div>
   );
 }
+
+export default Layout;
