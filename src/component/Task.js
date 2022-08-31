@@ -1,10 +1,12 @@
 import styles from './Task.module.css';
 
-function Task({ text }) {
+function Task({ text, handler, id }) {
   return (
     <div className={styles.task}>
       <h3>{text}</h3>
-      <button>Del</button>
+      <button onClick={handler} id={id}>
+        Del
+      </button>
     </div>
   );
 }

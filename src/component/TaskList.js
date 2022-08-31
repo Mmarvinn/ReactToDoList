@@ -1,18 +1,19 @@
 import Task from './Task';
-import { v4 as uuidv4 } from 'uuid';
+// import deleteTask from '../utils/deleteTask';
+import { useState } from 'react';
 
-const tasks = [];
-
-function TaskList({ text }) {
-  tasks.push(text);
+function TaskList({ tasks }) {
+  console.log(tasks);
 
   return (
     <div>
       {tasks.map((task) => {
-        return <Task key={uuidv4()} text={task} />;
+        return <Task key={task.id} text={task.value} id={task.id} />;
       })}
     </div>
   );
 }
 
 export default TaskList;
+
+// prop.types
