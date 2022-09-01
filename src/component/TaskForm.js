@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import TaskList from './TaskList';
 import { v4 as uuidv4 } from 'uuid';
+// import deleteTask from '../utils/deleteTask';
 
 function TaskForm() {
   const [tasks, setTasks] = useState([]);
@@ -9,10 +10,11 @@ function TaskForm() {
     event.preventDefault();
     const value = event.target.taskValue.value;
     setTasks((prevTasks) => {
-      return [...prevTasks, { value, id: uuidv4() }];
+      if (value !== '') {
+        return [...prevTasks, { value, id: uuidv4() }];
+      }
     });
     document.querySelector('form').reset();
-    // console.dir(event.target);
   }
 
   return (

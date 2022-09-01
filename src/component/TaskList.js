@@ -1,18 +1,27 @@
 import Task from './Task';
-// import deleteTask from '../utils/deleteTask';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
 function TaskList({ tasks }) {
-  console.log(tasks);
-
   return (
     <div>
       {tasks.map((task) => {
-        return <Task key={task.id} text={task.value} id={task.id} />;
+        return (
+          <Task
+            key={task.id}
+            text={task.value}
+            id={task.id}
+            // handler={deleteTask}
+          />
+        );
       })}
     </div>
   );
 }
+
+TaskList.propTypes = {
+  tasks: PropTypes.array,
+};
 
 export default TaskList;
 

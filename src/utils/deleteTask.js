@@ -1,8 +1,6 @@
-import { tasks } from '../component/TaskList';
-
-function deleteTask(event) {
-  tasks.slice(0, 1);
-  console.log(tasks);
+function deleteTask(e) {
+  e.preventDefault();
+  // console.log(task);
 }
 
 export default deleteTask;
