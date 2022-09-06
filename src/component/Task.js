@@ -1,10 +1,11 @@
 import styles from './Task.module.css';
 
-function Task({ text, handler, id }) {
+function Task({ text, deleteTask, completeTask, id, done }) {
   return (
     <div className={styles.task}>
-      <h3>{text}</h3>
-      <button onClick={handler} id={id}>
+      <input type="checkbox" onClick={completeTask} />
+      <h3 className={done ? styles.complete : styles.uncomplete}>{text}</h3>
+      <button onClick={deleteTask} id={id}>
         Del
       </button>
     </div>
