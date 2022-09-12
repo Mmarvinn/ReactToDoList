@@ -7,3 +7,28 @@ body {
   font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell',
     'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+}
+
+a:hover {
+  border: 1px solid red;
+}
+
+.footer-app {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-app--buttons {
+  display: inline-flex;
+  list-style-type: none;
+}
+
+.footer-app--buttons > li {
+  padding: 10px;
+}

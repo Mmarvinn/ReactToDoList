@@ -1,23 +1,7 @@
 import Task from './Task';
-import { useState } from 'react';
 import PropTypes from 'prop-types';
 
-function TaskList({ tasks }) {
-  function deleteTask(e, id) {
-    const setNewTasks = tasks[0].set;
-    e.preventDefault();
-    setNewTasks((prevTask) => prevTask.filter((task) => task.id !== id));
-  }
-
-  function completeTask(id) {
-    const setNewTasks = tasks[0].set;
-    setNewTasks((prevTask) =>
-      prevTask.map((task) =>
-        task.id === id ? { ...task, done: !task.done } : task
-      )
-    );
-  }
-
+function TaskList({ tasks, deleteTask, completeTask }) {
   return (
     <div>
       {tasks.map((task) => {
@@ -26,8 +10,8 @@ function TaskList({ tasks }) {
             key={task.id}
             text={task.value}
             id={task.id}
-            deleteTask={(e) => deleteTask(e, task.id)}
-            completeTask={() => completeTask(task.id)}
+            deleteTask={deleteTask}
+            completeTask={completeTask}
             done={task.done}
           />
         );
@@ -38,6 +22,7 @@ function TaskList({ tasks }) {
 
 TaskList.propTypes = {
   tasks: PropTypes.array,
+  handlers: PropTypes.object,
 };
 
 export default TaskList;
