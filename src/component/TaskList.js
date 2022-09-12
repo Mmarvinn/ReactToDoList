@@ -1,7 +1,7 @@
 import Task from './Task';
 import PropTypes from 'prop-types';
 
-function TaskList({ tasks, deleteTask, completeTask }) {
+function TaskList({ tasks, deleteTask, completeTask, editTask }) {
   return (
     <div>
       {tasks.map((task) => {
@@ -13,6 +13,7 @@ function TaskList({ tasks, deleteTask, completeTask }) {
             deleteTask={deleteTask}
             completeTask={completeTask}
             done={task.done}
+            editTask={editTask}
           />
         );
       })}

@@ -3,7 +3,6 @@ import TaskList from './TaskList';
 import { v4 as uuidv4 } from 'uuid';
 
 function TaskForm() {
-  console.log('render');
   const [tasks, setTasks] = useState([]);
   const [doneAll, setDoneAll] = useState(false);
   const [showTasks, setShowTasks] = useState('all');
@@ -24,6 +23,22 @@ function TaskForm() {
     }
   }
 
+  function editTask(id, text) {
+    console.log('edit');
+    console.log(id);
+    console.log(text);
+
+    setTasks((prevTasks) =>
+      prevTasks.map((task) => {
+        if (id === task.id) {
+          return { ...task, value: text };
+        } else {
+          return task;
+        }
+      })
+    );
+  }
+
   function showAllTasks() {
     setShowTasks('all');
   }
@@ -38,7 +53,6 @@ function TaskForm() {
 
   function deleteCompleted() {
     setTasks((prevTasks) => prevTasks.filter((task) => task.done === false));
-    console.log('deleted');
   }
 
   function completeAll() {
@@ -99,6 +113,7 @@ function TaskForm() {
         tasks={returnTasks()}
         deleteTask={deleteTask}
         completeTask={toggleCompleteTask}
+        editTask={editTask}
       />
       <div className="footer-app">
         <span>Tasks left: {tasksLeft.length}</span>
