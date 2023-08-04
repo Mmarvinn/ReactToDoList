@@ -4,6 +4,17 @@ import PropTypes from "prop-types";
 
 function TaskList({ tasks, deleteTask, completeTask, editTask, appHeight }) {
   const [height, setHeight] = useState(0);
+  let viewportUnits = "vh";
+
+  if (
+    /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+      navigator.userAgent
+    )
+  ) {
+    viewportUnits = "svh";
+  } else {
+    viewportUnits = "vh";
+  }
 
   useEffect(() => {
     setHeight(appHeight());
@@ -39,7 +50,7 @@ function TaskList({ tasks, deleteTask, completeTask, editTask, appHeight }) {
       <div
         className='border-div'
         style={{
-          height: `${height}vh`,
+          height: `${height}${viewportUnits}`,
         }}
       ></div>
     </>
