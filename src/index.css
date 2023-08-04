@@ -179,8 +179,16 @@ h1 {
 }
 
 @media (max-width: 600px) {
+  .App {
+    max-width: 95vw;
+  }
+
+  .border-div {
+    width: 93vw;
+  }
   main {
     padding: 30px;
+    max-width: 90vw;
   }
 
   h1 {

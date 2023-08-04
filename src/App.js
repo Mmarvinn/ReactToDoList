@@ -5,10 +5,10 @@ function App() {
   const ref = useRef(null);
 
   const appHeight = () => {
-    let vhBorderBottom = 1.2;
+    let vhBorderBottom = 0;
 
-    if (window.innerWidth > 500) vhBorderBottom = 1.5;
-    if (window.innerWidth > 650) vhBorderBottom = 1.8;
+    // if (window.innerWidth > 500) vhBorderBottom = 1.5;
+    // if (window.innerWidth > 650) vhBorderBottom = 1.8;
     if (window.innerWidth > 800) vhBorderBottom = 2;
     if (window.innerWidth > 1000) vhBorderBottom = 2.5;
     if (window.innerWidth > 1200) vhBorderBottom = 3;
