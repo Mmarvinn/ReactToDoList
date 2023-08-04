@@ -1,22 +1,22 @@
-import { useEffect, useState } from 'react';
-import TaskList from './TaskList';
-import { v4 as uuidv4 } from 'uuid';
+import { useState } from "react";
+import TaskList from "./TaskList";
+import { v4 as uuidv4 } from "uuid";
 
-function TaskForm() {
+function TaskForm({ appHeight }) {
   const [tasks, setTasks] = useState([]);
   const [doneAll, setDoneAll] = useState(false);
-  const [showTasks, setShowTasks] = useState('all');
+  const [showTasks, setShowTasks] = useState("all");
 
   const tasksLeft = tasks.filter((task) => task.done === false);
   const completeTasks = tasks.filter((task) => task.done === true);
 
   function returnTasks() {
     switch (showTasks) {
-      case 'all':
+      case "all":
         return tasks;
-      case 'active':
+      case "active":
         return tasksLeft;
-      case 'complete':
+      case "complete":
         return completeTasks;
       default:
         return tasks;
@@ -24,10 +24,6 @@ function TaskForm() {
   }
 
   function editTask(id, text) {
-    console.log('edit');
-    console.log(id);
-    console.log(text);
-
     setTasks((prevTasks) =>
       prevTasks.map((task) => {
         if (id === task.id) {
@@ -40,15 +36,15 @@ function TaskForm() {
   }
 
   function showAllTasks() {
-    setShowTasks('all');
+    setShowTasks("all");
   }
 
   function showActiveTasks() {
-    setShowTasks('active');
+    setShowTasks("active");
   }
 
   function showCompletedTasks() {
-    setShowTasks('complete');
+    setShowTasks("complete");
   }
 
   function deleteCompleted() {
@@ -103,32 +99,63 @@ function TaskForm() {
 
   return (
     <>
-      <form className="form" onSubmit={handlerSubmit}>
-        <button type="button" onClick={completeAll}>
+      <form className='form' onSubmit={handlerSubmit}>
+        <button type='button' onClick={completeAll} className='form_button'>
           All tasks
         </button>
-        <input type="text" placeholder="Add a task" name="taskForm" />
+        <input
+          type='text'
+          placeholder='Add a task'
+          name='taskForm'
+          className='form_input'
+        />
       </form>
       <TaskList
         tasks={returnTasks()}
         deleteTask={deleteTask}
         completeTask={toggleCompleteTask}
         editTask={editTask}
+        appHeight={appHeight}
       />
-      <div className="footer-app">
-        <span>Tasks left: {tasksLeft.length}</span>
-        <ul className="footer-app--buttons">
+      <div className='footer-app'>
+        <span className='footer-app_tasks-left'>
+          Tasks left: {tasksLeft.length}
+        </span>
+        <ul className='footer-app--buttons'>
           <li>
-            <a onClick={showAllTasks}>All</a>
+            <a
+              onClick={showAllTasks}
+              className={
+                showTasks === "all" ? "filter filter-active" : "filter"
+              }
+            >
+              All
+            </a>
           </li>
           <li>
-            <a onClick={showActiveTasks}>Active</a>
+            <a
+              onClick={showActiveTasks}
+              className={
+                showTasks === "active" ? "filter filter-active" : "filter"
+              }
+            >
+              Active
+            </a>
           </li>
           <li>
-            <a onClick={showCompletedTasks}>Completed</a>
+            <a
+              onClick={showCompletedTasks}
+              className={
+                showTasks === "complete" ? "filter filter-active" : "filter"
+              }
+            >
+              Completed
+            </a>
           </li>
         </ul>
-        <button onClick={deleteCompleted}>Delete completed</button>
+        <button onClick={deleteCompleted} className='footer-app_button'>
+          Delete completed
+        </button>
       </div>
     </>
   );

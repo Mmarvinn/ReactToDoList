@@ -1,11 +1,11 @@
-import TaskForm from './TaskForm';
+import TaskForm from "./TaskForm";
 
-function Layout() {
+function Layout({ appHeight }) {
   return (
-    <div>
-      <h1>Your Tasks</h1>
-      <TaskForm />
-    </div>
+    <main>
+      <h1>Todo List</h1>
+      <TaskForm appHeight={appHeight} />
+    </main>
   );
 }
 

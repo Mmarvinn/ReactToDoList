@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import styles from './Task.module.css';
+import { useState } from "react";
+import styles from "./Task.module.css";
 
 function Task({ text, deleteTask, completeTask, editTask, done, id }) {
   const [toggle, setToggle] = useState(true);
@@ -13,8 +13,13 @@ function Task({ text, deleteTask, completeTask, editTask, done, id }) {
   }
 
   return (
-    <div className={styles.task}>
-      <input type="checkbox" onChange={() => completeTask(id)} checked={done} />
+    <div className={done ? styles.task__complete : styles.task}>
+      <input
+        type='checkbox'
+        onChange={() => completeTask(id)}
+        checked={done}
+        className={styles.task_checkbox}
+      />
       {toggle ? (
         <h3
           onDoubleClick={() => setToggle(false)}
@@ -24,10 +29,12 @@ function Task({ text, deleteTask, completeTask, editTask, done, id }) {
         </h3>
       ) : (
         <form onSubmit={(e) => changeTask(id, e)}>
-          <input type="text" placeholder="" name="taskChange" />
+          <input type='text' placeholder='' name='taskChange' />
         </form>
       )}
-      <button onClick={() => deleteTask(id)}>Del</button>
+      <button onClick={() => deleteTask(id)} className={styles.task_button}>
+        Del
+      </button>
     </div>
   );
 }

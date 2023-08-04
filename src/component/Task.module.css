@@ -1,9 +1,20 @@
-.task {
+.task,
+.task__complete {
   padding: 10px;
-  margin: 10px;
+  margin: 10px 0;
   display: flex;
   justify-content: space-between;
-  border: 1px solid grey;
+  border-radius: 6px;
+  font-size: 1rem;
+  color: #2f2f2f;
+  background: linear-gradient(#0400f9a1, #03b5df);
+  color: hsl(260deg 7.52% 92.5%);
+  text-transform: capitalize;
+  letter-spacing: 1px;
+}
+
+.task__complete {
+  background: hsl(0deg 0% 0% / 27%);
 }
 
 .complete {
@@ -12,4 +23,36 @@
 
 .uncomplete {
   text-decoration: none;
+}
+
+.complete,
+.uncomplete {
+  padding: 0 10px;
+  word-break: break-all;
+  font-family: inherit;
+  font-weight: 400;
+}
+
+.task_checkbox {
+  min-width: 18px;
+}
+
+.task_checkbox:hover {
+  cursor: pointer;
+}
+
+.task_button {
+  border-radius: 5px;
+  font-size: 1rem;
+  border: none;
+  color: #2f2f2f;
+  font-weight: 600;
+  padding: 5px 10px;
+  min-width: 3.5rem;
+  max-height: 2rem;
+}
+
+.task_button:hover {
+  cursor: pointer;
+  background-color: #c7bbbb;
 }
