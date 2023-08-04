@@ -129,3 +129,102 @@ h1 {
   left: 1vw;
   border-radius: 10px;
 }
+
+@media (max-width: 1100px) {
+  main {
+    max-width: 60vw;
+  }
+
+  .App {
+    max-width: 65vw;
+  }
+
+  .border-div {
+    width: 63vw;
+  }
+}
+
+@media (max-width: 900px) {
+  main {
+    max-width: 70vw;
+  }
+
+  .App {
+    max-width: 75vw;
+  }
+
+  .border-div {
+    width: 73vw;
+  }
+
+  .form_button {
+    padding: 5px;
+    min-width: fit-content;
+  }
+
+  .footer-app_button {
+    padding: 5px;
+  }
+
+  .form_button,
+  .form_input {
+    font-size: 0.9rem;
+  }
+
+  .footer-app_button,
+  .filter,
+  .footer-app_tasks-left {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 30px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .footer-app_button,
+  .filter,
+  .footer-app_tasks-left {
+    font-size: 0.6rem;
+  }
+
+  .footer-app {
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+  .footer-app_tasks-left {
+    order: 2;
+  }
+
+  .footer-app_button {
+    order: 3;
+  }
+
+  .footer-app--buttons {
+    order: 1;
+    width: 100%;
+    display: block;
+    margin: 0 0 15px;
+  }
+
+  .footer-app--buttons li {
+    display: inline-block;
+  }
+
+  .form_button,
+  .form_input {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 450px) {
+  main {
+    padding: 10px;
+  }
+}
