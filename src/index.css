@@ -15,6 +15,7 @@ main {
   margin: 0 auto;
   padding: 50px;
   margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 10px;
   background: linear-gradient(#bfbfbf, #e9e9e9);
 }

@@ -1,9 +1,14 @@
-import { useState } from "react";
-import TaskList from "./TaskList";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 
+import TaskList from "./TaskList";
+import {
+  getLocalStorageTasks,
+  setLocalStorageTasks,
+} from "../services/localStorage";
+
 function TaskForm({ appHeight }) {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(getLocalStorageTasks());
   const [doneAll, setDoneAll] = useState(false);
   const [showTasks, setShowTasks] = useState("all");
 
@@ -96,6 +101,10 @@ function TaskForm({ appHeight }) {
 
     e.target.reset();
   }
+
+  useEffect(() => {
+    setLocalStorageTasks(tasks);
+  }, [tasks]);
 
   return (
     <>
